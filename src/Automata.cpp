@@ -2,10 +2,10 @@
 #include "Automata.h"
 
 Automata::Automata() {
-	cash = 0;
-	menu = { "Coffee", "Tea", "HotWater" };
-	prices = { 60, 35, 15 };
-	state = OFF;
+ cash = 0;
+ menu = { "Coffee", "Tea", "HotWater" };
+ prices = { 60, 35, 15 };
+ state = OFF;
 }
 
 void Automata::on() {
