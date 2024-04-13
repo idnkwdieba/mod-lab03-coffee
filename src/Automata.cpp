@@ -1,3 +1,4 @@
+// Copyright 2022 UNN-IASR
 #include "Automata.h"
 
 Automata::Automata() {
@@ -11,7 +12,7 @@ void Automata::on() {
 	if (state != OFF) {
 		return;
 	}
-
+	
 	state = WAIT;
 }
 
