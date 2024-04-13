@@ -9,70 +9,70 @@ state = OFF;
 }
 
 void Automata::on() {
- if (state != OFF) {
-  return;
- }
- state = WAIT;
+if (state != OFF) {
+return;
+}
+state = WAIT;
 }
 
 void Automata::off() {
- if (state != WAIT) {
-  return;
- }
+if (state != WAIT) {
+return;
+}
 
- state = OFF;
+state = OFF;
 }
 
 void Automata::coin(int coins) {
- if ((state != WAIT && state != ACCEPT) || coins <= 0) {
-  return;
- }
+if ((state != WAIT && state != ACCEPT) || coins <= 0) {
+return;
+}
 
- state = ACCEPT;
- cash += coins;
+state = ACCEPT;
+cash += coins;
 }
 
 std::vector<std::string> Automata::getMenu() {
- return menu;
+return menu;
 }
 
 STATES Automata::getState() {
- return state;
+return state;
 }
 
 void Automata::choice(int choice) {
- if (state != ACCEPT || choice < 0 || choice >= menu.size()) {
-  return;
- }
+if (state != ACCEPT || choice < 0 || choice >= menu.size()) {
+return;
+}
 
- check(choice);
+check(choice);
 }
 
 void Automata::check(int choice) {
- state = CHECK;
+state = CHECK;
 
- if (cash < prices[choice]) {
-  cancel();
-  }
+if (cash < prices[choice]) {
+cancel();
+}
 
- cook(choice);
+cook(choice);
 }
 
 void Automata::cancel() {
- if (state != ACCEPT && state != CHECK) {
-  return;
- }
+if (state != ACCEPT && state != CHECK) {
+return;
+}
 
- state = WAIT;
+state = WAIT;
 }
 
 void Automata::cook(int choice) {
- state = COOK;
- cash -= prices[choice];
+state = COOK;
+cash -= prices[choice];
 
- finish();
+finish();
 }
 
 void Automata::finish() {
-	state = WAIT;
+state = WAIT;
 }
