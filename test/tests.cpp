@@ -4,90 +4,90 @@
 #include "Automata.h"
 
 TEST(AutomataOnTest, ChangesState) {
-	Automata automata;
+Automata automata;
 
-	automata.on();
+automata.on();
 
-	EXPECT_EQ(WAIT, automata.getState());
+EXPECT_EQ(WAIT, automata.getState());
 }
 
 TEST(AutomataOnTest, HandlesWrongState) {
-	Automata automata;
-	automata.on();
-	automata.coin(1);
+Automata automata;
+automata.on();
+automata.coin(1);
 
-	automata.on();
+automata.on();
 
-	EXPECT_EQ(ACCEPT, automata.getState());
+EXPECT_EQ(ACCEPT, automata.getState());
 }
 
 TEST(AutomataOffTest, ChangesState) {
-	Automata automata;
-	automata.on();
+Automata automata;
+automata.on();
 
-	automata.off();
+automata.off();
 
-	EXPECT_EQ(OFF, automata.getState());
+EXPECT_EQ(OFF, automata.getState());
 }
 
 TEST(AutomataOffTest, HandlesWrongState) {
-	Automata automata;
-	automata.on();
-	automata.coin(1);
+Automata automata;
+automata.on();
+automata.coin(1);
 
-	automata.off();
+automata.off();
 
-	EXPECT_EQ(ACCEPT, automata.getState());
+EXPECT_EQ(ACCEPT, automata.getState());
 }
 
 TEST(AutomataCoinTest, HandlesWrongState) {
-	Automata automata;
+Automata automata;
 
-	automata.coin(1);
+automata.coin(1);
 
-	EXPECT_EQ(OFF, automata.getState());
+EXPECT_EQ(OFF, automata.getState());
 }
 
 TEST(AutomataCoinTest, HandlesWrongValue) {
-	Automata automata;
-	automata.on();
+Automata automata;
+automata.on();
 
-	automata.coin(-1);
+automata.coin(-1);
 
-	EXPECT_EQ(WAIT, automata.getState());
+EXPECT_EQ(WAIT, automata.getState());
 }
 
 TEST(AutomataCoinTest, ChangesState) {
-	Automata automata;
-	automata.on();
+Automata automata;
+automata.on();
 
-	automata.coin(1);
+automata.coin(1);
 
-	EXPECT_EQ(ACCEPT, automata.getState());
+EXPECT_EQ(ACCEPT, automata.getState());
 }
 
 TEST(AutomataChoiceTest, HandlesWrongState) {
-	Automata automata;
+Automata automata;
 
-	automata.choice(1);
+automata.choice(1);
 
-	EXPECT_EQ(OFF, automata.getState());
+EXPECT_EQ(OFF, automata.getState());
 }
 
 TEST(AutomataChoiceTest, HandlesWrongChoice) {
-	Automata automata;
-	automata.on();
-	automata.coin(1);
+Automata automata;
+automata.on();
+automata.coin(1);
 
-	automata.choice(-1);
+automata.choice(-1);
 
-	EXPECT_EQ(ACCEPT, automata.getState());
+EXPECT_EQ(ACCEPT, automata.getState());
 }
 
 TEST(AutomataCancelTest, HandlesWrongState) {
-	Automata automata;
+Automata automata;
 
-	automata.cancel();
+automata.cancel();
 
-	EXPECT_EQ(OFF, automata.getState());
+EXPECT_EQ(OFF, automata.getState());
 }
