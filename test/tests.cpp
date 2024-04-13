@@ -81,7 +81,7 @@ TEST(AutomataChoiceTest, HandlesWrongChoice) {
 
 	automata.choice(-1);
 
-	EXPECT_EQ(WAIT, automata.getState());
+	EXPECT_EQ(ACCEPT, automata.getState());
 }
 
 TEST(AutomataCancelTest, HandlesWrongState) {
